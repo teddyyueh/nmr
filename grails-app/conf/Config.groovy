@@ -84,6 +84,8 @@ grails.hibernate.cache.queries = false
 grails.hibernate.pass.readonly = false
 // configure passing read-only to OSIV session by default, requires "singleSession = false" OSIV mode
 grails.hibernate.osiv.readonly = false
+// Use less4j instead of the standard less-1.6.0.js to gain performance speeds
+grails.assets.less.compiler = 'less4j'
 
 environments {
     development {
@@ -133,4 +135,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll']
 ]
-
+// TODO: TY - Consider making these true as we get closer to go live (http://grails-plugins.github.io/grails-spring-security-core/guide/single.html#requestMappings):
+grails.plugin.springsecurity.rejectIfNoRule = false
+grails.plugin.springsecurity.fii.rejectPublicInvocations = false

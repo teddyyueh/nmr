@@ -3,7 +3,7 @@
 		Onset Date
 		<span class="required-indicator">*</span>
 	</label>
-	<input type="text" datepicker-popup name="onsetDate" ng-model="complaintInstance.onsetDate" date-disabled="disabled(date, mode)" disabled="disabled" max-date="{{maxDate}}" ng-required="true" close-text="Close" is-open="datepickerOpened" />
+	<input type="text" datepicker-popup name="onsetDate" ng-model="complaintInstance.onsetDate" date-disabled="disabled(date, mode)" disabled="disabled" max-date="{{maxDate}}" ng-required="true" close-text="Close" is-open="$parent.datepickerOpened" />
 	<span>
 		<button type="button" class="btn btn-default" ng-click="openDatepicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
     </span>

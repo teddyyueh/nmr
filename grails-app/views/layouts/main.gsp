@@ -14,13 +14,7 @@
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
-  		<asset:stylesheet src="vendor/jquery/jquery-ui.min.css"/>
-  		<asset:stylesheet src="vendor/jquery/jquery-ui.structure.min.css"/>
-  		<asset:stylesheet src="vendor/jquery/jquery-ui.theme.min.css"/>
-  		<asset:stylesheet src="application.css"/>
-  		<asset:stylesheet src="vendor/angular/modules/ng-tags-input.min.css"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+  		<asset:stylesheet src="application.less"/>
 		<asset:javascript src="application.js"/>
 		<g:layoutHead/>
 	</head>
