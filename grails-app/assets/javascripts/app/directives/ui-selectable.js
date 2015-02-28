@@ -11,9 +11,9 @@
 	angular.module('nmr.directives.uiSelectable', []).directive('uiSelectable', [function() {
 	    return {
 	        restrict: 'A',
-	        link: function ($scope, $element, attrs) {
+	        link: function (scope, $element, attrs) {
 	        	// Make descendents selectable:
-	        	var options = attrs.selectableOptions ? angular.fromJson(attrs.selectableOptions) : {};
+	        	var options = common.eval(scope, attrs.uiSelectable) || {};
 	            $element.selectable(options);
 	        }
 	    }

@@ -1,0 +1,43 @@
+<div class="required">
+	<label for="onsetDate">
+		Onset Date
+		<span class="required-indicator">*</span>
+	</label>
+	<input type="text" datepicker-popup name="onsetDate" ng-model="complaintInstance.onsetDate" date-disabled="disabled(date, mode)" disabled="disabled" max-date="{{maxDate}}" ng-required="true" close-text="Close" is-open="datepickerOpened" />
+	<span>
+		<button type="button" class="btn btn-default" ng-click="openDatepicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+</div>
+
+<div class="required">
+	<label for="location">
+		Location
+		<span class="required-indicator">*</span>
+	</label>
+	<tags-input class="bootstrap" ng-model="complaintInstance.locations" display-property="label" placeholder="Add a location" replace-spaces-with-dashes="false" add-from-autocomplete-only="true">
+		<auto-complete source="loadLocations($query)" min-length="1" debounce-delay="0"></auto-complete>
+	</tags-input>
+</div>
+
+<div>
+	<label for="severity">
+		Severity
+	</label>
+	<div ui-slider min="1" max="10" ng-model="complaintInstance.severity" />
+	<input type="text" name="severity" ng-model="complaintInstance.severity" />
+</div>
+
+<div class="">
+	<label for="comments">
+		Comments
+	</label>
+	<textArea name="comments" cols="40" rows="5" maxlength="9999">{{complaintInstance.comments}}</textArea>
+</div>
+
+<div ng-show="complaintInstance.id > 0">
+	<label for="resolved">
+		Resolved
+	</label>
+	<input type="checkbox" name="resolved" ng-model="complaintInstance.resolved" />
+</div>
+

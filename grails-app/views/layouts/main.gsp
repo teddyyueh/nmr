@@ -6,6 +6,7 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en" class="no-js" ng-app="nmr"><!--<![endif]-->
 	<head>
+		<base href="${request.contextPath}"></base>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="Grails"/></title>
@@ -13,10 +14,13 @@
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
+  		<asset:stylesheet src="vendor/jquery/jquery-ui.min.css"/>
+  		<asset:stylesheet src="vendor/jquery/jquery-ui.structure.min.css"/>
+  		<asset:stylesheet src="vendor/jquery/jquery-ui.theme.min.css"/>
   		<asset:stylesheet src="application.css"/>
-  		<asset:stylesheet src="jquery/jquery-ui.min.css"/>
-  		<asset:stylesheet src="jquery/jquery-ui.structure.min.css"/>
-  		<asset:stylesheet src="jquery/jquery-ui.theme.min.css"/>
+  		<asset:stylesheet src="vendor/angular/modules/ng-tags-input.min.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 		<asset:javascript src="application.js"/>
 		<g:layoutHead/>
 	</head>
@@ -25,5 +29,11 @@
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+		<script type="text/javascript">
+			angular.module('nmr.constants')
+				.constant('CONTEXT_ROOT', "${request.contextPath}")
+				.constant('CONTEXT_PREFIX', "${request.contextPath == '/' ? '' : request.contextPath}")
+				.constant('PARTIALS_ROOT', "${request.contextPath == '/' ? '' : request.contextPath}/assets/partials");
+		</script>
 	</body>
 </html>

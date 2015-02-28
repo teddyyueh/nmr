@@ -10,7 +10,7 @@ import spock.lang.Specification
 class LocationSpec extends Specification {
 
     def setup() {
-		mockDomain(Location)
+		
     }
 
     def cleanup() {
@@ -19,8 +19,9 @@ class LocationSpec extends Specification {
 
     void "test default grails binding"() {
 		when:
-			Location location = new Location(name:'Test Name', label: 'Test Label', enabled: false)
+			Location location = new Location(name:'Test Name', label: 'Test Label', enabled: false).save()
 		then:
+			location.id
 			location.name == 'Test Name'
 			location.label == 'Test Label'
 			!location.enabled
@@ -28,8 +29,9 @@ class LocationSpec extends Specification {
 	
 	void "test location without label and default enabled"() {
 		when:
-			Location location = new Location(name:'Test Name')
+			Location location = new Location(name:'Test Name').save()
 		then:
+			location.id
 			location.name == 'Test Name'
 			location.label == 'Test Name'
 			location.enabled

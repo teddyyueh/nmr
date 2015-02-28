@@ -1,11 +1,14 @@
 package com.pyrsana.nmr.complaint
 
+import grails.rest.Resource
+
 /**
- * Domain that tracks where a complaint is on the body.
+ * Domain that tracks where a {@link Complaint} is on the body.
  * 
  * @author Teddy
  *
  */
+@Resource(formats=['json', 'xml'])
 class Location {
 	
 	String name
@@ -16,6 +19,7 @@ class Location {
 	Date lastUpdated
 
     static constraints = {
+		name: unique: true
 		label nullable:true
     }
 	
