@@ -1,0 +1,100 @@
+<div ng-controller="PatientCtrl" class="panel panel-default pull-left col-md-4" style="padding-left:0; padding-right:0;" data-workspace-panel>
+	<div class="panel-heading" data-draggable-handle ng-switch on="patient.id || 'null'">
+		<span ng-switch-when="null">Create New Patient</span>
+		<span ng-switch-default>{{patient.firstName}} {{patient.middleName}} {{patient.lastName}}</span>
+	</div>
+	<div class="panel-body">
+		<form class="form-horizontal">
+			<div class="form-group alert-info text-center" role="alert">Account</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label"  for="username">Username</label>
+				<div class="col-sm-9">
+					<input class="form-control" name="username" placeholder="Enter username" required ng-model="patient.username">
+				</div>
+			</div>
+			<div class="form-group" ng-show="patient.id">
+				<label class="col-sm-3 control-label"  for="medicalRecordNumber">Medical Record Number (MRN)</label>
+				<div class="col-sm-9">
+					<input class="form-control" name="medicalRecordNumber" placeholder="Enter MRN" ng-required="patient.id" ng-model="patient.profile.medicalRecordNumber">
+				</div>
+			</div>
+			<div class="">
+				<div class="form-group">
+					<label class="col-sm-3 control-label"  for="password">Password</label>
+					<div class="col-sm-9">
+						<input type="password" class="form-control" name="password" placeholder="Enter Password" ng-model="patient.password">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label"  for="confirmPassword">Confirm Password</label>
+					<div class="col-sm-9">
+						<input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password">
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-group alert-info text-center" role="alert">Personal</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="firstName">First</label>
+				<div class="col-sm-9">
+					<input class="form-control" name="firstName" placeholder="First" required ng-model="patient.profile.firstName">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="middleName">Middle</label>
+				<div class="col-sm-9">
+					<input class="form-control" name="middleName" placeholder="Middle" ng-model="patient.profile.middleName">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="firstName">Last</label>
+				<div class="col-sm-9">
+					<input class="form-control" name="lastName" placeholder="Last" required ng-model="patient.profile.lastName">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label"  for="birthdate">Birthdate</label>
+				<div class="col-sm-9">
+					<div class="input-group">
+				      <input readonly type="text" class="form-control" placeholder="Select birthdate" datepicker-popup ng-model="patient.profile.birthdate" date-disabled="disabled(date, mode)" close-text="Close" is-open="datepickerOpened">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button" ng-click="openDatepicker($event)">
+				        	<span class="glyphicon glyphicon-calendar"></span>
+				        </button>
+				      </span>
+				    </div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label"  for="gender">Gender</label>
+				<div class="col-sm-9">
+					<select class="form-control" name=gender" ng-model="patient.profile.gender">
+						<option value="">Select Gender</option>
+						<option value="F">Female</option>
+						<option value="M">Male</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group alert-info text-center" role="alert">Insurance</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label"  for="insuranceMemberId">Member ID</label>
+				<div class="col-sm-9">
+					<input class="form-control" name="insuranceMemberId" placeholder="Member ID" ng-model="patient.profile.insuranceMemberId">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label"  for="insuranceGroup">Group</label>
+				<div class="col-sm-9">
+					<input class="form-control" name="insuranceGroup" placeholder="Group" ng-model="patient.profile.insuranceGroup">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label"  for="insurancePlan">Plan</label>
+				<div class="col-sm-9">
+					<input class="form-control" name="insurancePlan" placeholder="Plan" ng-model="patient.profile.insurancePlan">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

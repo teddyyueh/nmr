@@ -32,6 +32,8 @@
 	</div>
 	
 	<button data-workspace-panel-trigger="click" data-template-url="/complaint/create.html?id=yay" data-workspace-selector="#workspace" data-workspace-panel-scope-params='{"id":"teddy"}'>New Add Complaint</button>
+
+	<button data-workspace-panel-trigger="click" data-template-url="/user/patient/form.html" data-workspace-selector="#workspace" >Add Patient</button>
 	
 	<div id="workspace" data-workspace="true">
 	

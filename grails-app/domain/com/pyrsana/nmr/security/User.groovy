@@ -1,13 +1,16 @@
 package com.pyrsana.nmr.security
 
+import grails.rest.Resource;
+
 /**
- * Represents Spring Security user. The only addition to the generated class from the s2-quickstart script is a UserProfile field.
+ * Represents Spring Security user. Additions to the generated class from the s2-quickstart script is a UserProfile field:
  *  
- * Each user can have a different profile instance/class. This way, all users can share the same user class, but depend on a different profile
+ * 1) Each user can have a different profile instance/class. This way, all users can share the same user class, but depend on a different profile
  * in order to have different fields/functionality.
  */
+@Resource()
 class User {
-
+	
 	transient springSecurityService
 
 	UserProfile profile

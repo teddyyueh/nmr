@@ -1,7 +1,7 @@
-<div class="required">
+<div>
 	<label for="onsetDate">
 		Onset Date
-		<span class="required-indicator">*</span>
+		<span-indicator">*</span>
 	</label>
 	<input type="text" datepicker-popup name="onsetDate" ng-model="complaintInstance.onsetDate" date-disabled="disabled(date, mode)" disabled="disabled" max-date="{{maxDate}}" ng-required="true" close-text="Close" is-open="$parent.datepickerOpened" />
 	<span>
@@ -9,10 +9,10 @@
     </span>
 </div>
 
-<div class="required">
+<div>
 	<label for="location">
 		Location
-		<span class="required-indicator">*</span>
+		<span-indicator">*</span>
 	</label>
 	<tags-input class="bootstrap" ng-model="complaintInstance.locations" display-property="label" placeholder="Add a location" replace-spaces-with-dashes="false" add-from-autocomplete-only="true">
 		<auto-complete source="loadLocations($query)" min-length="1" debounce-delay="0"></auto-complete>
