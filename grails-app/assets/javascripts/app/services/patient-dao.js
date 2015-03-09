@@ -28,7 +28,7 @@ angular.module('nmr.services.dao.patient', ['ngResource', 'nmr.constants', 'nmr.
 	return $resource(urlPatternPrefix + '/:id', {
         format:'json', callback:'JSON_CALLBACK'},{
         'get':   angular.extend({method:'GET'}, defaultOptions),
-        'query': angular.extend({method:'GET', isArray: true}, defaultOptions),
+        'query': angular.extend({method:'GET', isArray: true, url: '/patient/query'}, defaultOptions),
         'save':  angular.extend({method:'POST', url: urlPatternPrefix}, defaultOptions),
         'update':angular.extend({method:'PUT'}, defaultOptions),
         'delete':angular.extend({method:'DELETE'}, defaultOptions),

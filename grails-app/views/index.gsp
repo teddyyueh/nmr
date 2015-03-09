@@ -37,6 +37,8 @@
 	
 	<div id="workspace" data-workspace="true">
 	
+		<button data-workspace-panel-trigger="click" data-template-url="/user/patient/form.html">TEST</button>
+	
 		<div id="snaptarget" class="ui-widget-header">
 			<p>I'm a snap target</p>
 		</div>
@@ -44,6 +46,7 @@
 		<div id="draggable" class="draggable ui-widget-content" data-workspace-panel='{ "snap": true }'>
 			<div class="ui-widget-header" data-draggable-handle>Handle</div>
 			<p>Default (snap: true), snaps to all other draggable elements</p>
+			<button data-workspace-panel-trigger="click" data-template-url="/user/patient/form.html">TEST 2</button>
 		</div>
 
 		<div id="draggable2" class="draggable ui-widget-content" data-workspace-panel='{ "snap": "#snaptarget" }'>

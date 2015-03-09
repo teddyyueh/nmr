@@ -18,6 +18,10 @@ class UserController extends RestfulController {
 		respond(createResource(), [includes:['profile.deep'], excludes:['password']])
 	}
 	
+	def teddy() {
+		log.info("huh")
+	}
+	
 	@Override
 	protected Object createResource() {
 		def instance = resource.newInstance()
@@ -34,7 +38,6 @@ class UserController extends RestfulController {
 	
 	@Override
 	protected Object getObjectToBind() {
-		
 		return super.getObjectToBind()
 	}
 	

@@ -6,7 +6,7 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en" class="no-js" ng-app="nmr"><!--<![endif]-->
 	<head>
-		<base href="${request.contextPath}"></base>
+		<base href="${request.contextPath ?: '/'}"></base>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="Grails"/></title>

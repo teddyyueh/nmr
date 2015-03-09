@@ -2,7 +2,7 @@ package com.pyrsana.nmr.security
 
 class PatientProfile extends UserProfile {
 
-	Date birthdate = new Date()
+	Date birthdate
 	String medicalRecordNumber
 	
 	String insuranceMemberId
@@ -10,10 +10,11 @@ class PatientProfile extends UserProfile {
 	String insurancePlan
 	
     static constraints = {
-		medicalRecordNumber unique:true, size:1..255
+		medicalRecordNumber unique:true, size:0..255, nullable:true
 		insuranceMemberId blank:true, nullable:true
 		insuranceGroup blank:true, nullable:true
 		insurancePlan blank:true, nullable:true
+		birthdate nullable: true
     }
 	
 	static mapping = {

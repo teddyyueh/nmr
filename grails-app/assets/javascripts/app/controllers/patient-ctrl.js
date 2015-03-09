@@ -15,3 +15,19 @@ angular.module('nmr.controllers.patient', ['nmr.services.dao', 'nmr.services.tag
 	
 }]);
 
+angular.module('nmr.controllers.patient').controller('PatientsCtrl', ['$scope', '$log', 'Patient', 'PARTIALS_ROOT', function($scope, $log, Patient, PARTIALS_ROOT) {
+	
+	$scope.name = '';
+	$scope.mrn = '';
+	$scope.patients = [];
+	
+	// Watch form fields to reload patient data:
+	function loadPatientData() {
+		Patient.query({name: $scope.name, mrn: $scope.mrn}, function(patients){
+			$scope.patients = patients;
+		});
+	}
+	
+    $scope.$watchGroup(['name', 'mrn'], loadPatientData);
+	
+}]);

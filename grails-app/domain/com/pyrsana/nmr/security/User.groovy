@@ -30,6 +30,7 @@ class User {
 
 	static mapping = {
 		password column: '`password`'
+		profile cascade: 'all-delete-orphan'
 	}
 
 	Set<RoleGroup> getAuthorities() {

@@ -17,7 +17,7 @@ class UserProfile {
 		firstName size:1..50
 		middleName nullable:true, size:0..50
 		lastName size:1..50
-		gender size:0..1
+		gender size:0..1, nullable:true
     }
 	
 	static mapping = {
