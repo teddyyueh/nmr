@@ -119,7 +119,7 @@ angular.module('nmr.directives.workspacePanel', ['nmr.directives.workspace', 'nm
 				$templateRequest(attrs.templateUrl);
 			}
 			
-			// Create new panel on click (NOTE: trigger event will be swallowed if $element is inside of a workspace, but not in a panel):
+			// Create new panel on click:
 			$element.bind(attrs.workspacePanelTrigger || 'click', function(event) {
 	            scope.$apply(function() {
 	            	var $workspace = attrs.workspaceSelector ? $(attrs.workspaceSelector) : $element.closest('[data-workspace]');

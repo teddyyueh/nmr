@@ -17,7 +17,7 @@
 	        restrict: 'A',
 	        transclude: true,
 	        replace: true,
-	        template: '<div class="workspace" data-ui-selectable=\'{"filter": "[data-workspace-panel]", "cancel": "[data-workspace-panel]"}\' ng-transclude></div>'
+	        template: '<div class="workspace" data-ui-selectable=\'{"filter": "[data-workspace-panel]", "cancel": "[data-workspace-panel],[data-workspace-panel-trigger],[data-unselectable]"}\' ng-transclude></div>'
 	    }
 	}]);
 	

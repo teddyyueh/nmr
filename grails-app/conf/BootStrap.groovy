@@ -15,9 +15,9 @@ class BootStrap {
 		// Allow controllers to specify which models to render deeply in JSON via adding '.deep' to the property name:
 		JSON.registerObjectMarshaller(new SelectivelyDeepNoClassJsonMarshaller())
 		
-		User teddy = new User(username:'tyueh', password:'duh', profile: new PatientProfile(firstName:'Teddy', lastName:'Yueh')).save()
-		User carol = new User(username:'cyueh', password:'duh', profile: new PatientProfile(firstName:'Carol', middleName: 'Cui', lastName:'Yueh')).save()
-		User ivo = new User(username:'iyueh', password:'duh', profile: new PatientProfile(firstName:'Ivo', lastName:'Ma')).save()
+		User teddy = new User(username:'tyueh', password:'duh', profile: new PatientProfile(firstName:'Teddy', lastName:'Yueh', medicalRecordNumber:'NMR-001')).save()
+		User carol = new User(username:'cyueh', password:'duh', profile: new PatientProfile(firstName:'Carol', middleName: 'Cui', lastName:'Yueh', medicalRecordNumber:'NMR-002')).save()
+		User ivo = new User(username:'iyueh', password:'duh', profile: new PatientProfile(firstName:'Ivo', lastName:'Ma', medicalRecordNumber:'NMR-003')).save()
 		User ck = new User(username:'cma', password:'duh', profile: new PatientProfile(firstName:'CK', lastName:'Ma')).save()
 		
 		RoleGroup patientGroup = new RoleGroup(name:'GROUP_PATIENT').save()
