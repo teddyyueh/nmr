@@ -28,8 +28,7 @@
 		<script type="text/javascript">
 			angular.module('nmr.constants')
 				.constant('CONTEXT_ROOT', "${request.contextPath}")
-				.constant('CONTEXT_PREFIX', "${request.contextPath == '/' ? '' : request.contextPath}")
-				.constant('PARTIALS_ROOT', "${request.contextPath == '/' ? '' : request.contextPath}/assets/partials");
+				.constant('CONTEXT_PREFIX', "${request.contextPath == '/' ? '' : request.contextPath}");
 		</script>
 	</body>
 </html>

@@ -7,7 +7,7 @@
  * 
  * In markup, each layer can be a wrapper div. Changing z position can be as simple as moving them between wrapper divs. z-index may not have to be changed, but rather the div the panel is in.
  */
-angular.module('nmr.directives.workspacePanel', ['nmr.directives.workspace', 'nmr.services.uiSelectable']).factory('workspacePanelService', ['$http', '$templateCache', '$compile', 'uiSelectableService', 'PARTIALS_ROOT', function($http, $templateCache, $compile, uiSelectableService, PARTIALS_ROOT) {
+angular.module('nmr.directives.workspacePanel', ['nmr.directives.workspace', 'nmr.services.uiSelectable']).factory('workspacePanelService', ['$http', '$templateCache', '$compile', 'uiSelectableService', function($http, $templateCache, $compile, uiSelectableService) {
 
 	var workspacePanelService = {};
 	
@@ -70,13 +70,13 @@ angular.module('nmr.directives.workspacePanel', ['nmr.directives.workspace', 'nm
 	 * 
 	 * @param scope The scope being applied. (Currently just being passed just in case...)
 	 * @param $workspace Element representing the workspace to add the new panel to.
-	 * @param templateUrl Path to the desired template to load as the new workspace panel. Will be pre-pended with PARTIALS_ROOT.
+	 * @param templateUrl Path to the desired template to load as the new workspace panel.
 	 * @param params Params to send with $http request.
 	 * @param scopeParams Values to update in the resulting scope.
 	 */
 	workspacePanelService.createPanel = function($workspace, templateUrl, params, scopeParams) {
-		console.log('Craeting panel from template: ' + templateUrl);
-		$http.get(PARTIALS_ROOT + templateUrl, {
+		console.log('Creating panel from template: ' + templateUrl);
+		$http.get(templateUrl, {
 			params: params || {},
             cache: $templateCache
         }).then(function(response) {
@@ -86,6 +86,9 @@ angular.module('nmr.directives.workspacePanel', ['nmr.directives.workspace', 'nm
         	angular.forEach(scopeParams || {}, function(value, key){
         		panelScope[key] = value;
         	});
+        	
+        	// TODO: TY - Wrap $content in data-workspace-panel div and look for a trigger (.panel, .panel-header):
+        	
         	// Insert content prior to compiling it to account for directives that need depend on context (e.g. workspacePanel needs to find the closest workspace):
         	var $content = $(response.data);
             $workspace.append($content);
@@ -115,7 +118,7 @@ angular.module('nmr.directives.workspacePanel', ['nmr.directives.workspace', 'nm
 		restrict: 'A',
 		link: function(scope, $element, attrs) {
 			// Preload the template, if necessary:
-			if (attrs.preload && attrs.preload != 'false') {
+			if (common.eval(scope, attrs.preload)) {
 				$templateRequest(attrs.templateUrl);
 			}
 			

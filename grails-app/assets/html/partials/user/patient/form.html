@@ -1,5 +1,5 @@
-<div ng-controller="PatientCtrl" class="panel panel-default pull-left col-md-4" style="padding-left:0; padding-right:0;" data-workspace-panel>
-	<div class="panel-heading" data-draggable-handle ng-switch on="patient.id || 'null'">
+<div ng-controller="PatientCtrl" class="panel panel-default">
+	<div class="panel-heading" ng-switch on="patient.id || 'null'">
 		<span ng-switch-when="null">Create New Patient</span>
 		<span ng-switch-default>{{patient.firstName}} {{patient.middleName}} {{patient.lastName}}</span>
 	</div>

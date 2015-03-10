@@ -4,7 +4,7 @@
 'use strict';
 
 angular.module('nmr.directives', [
-    'ngTagsInput',
+	'nmr.directives.modal',
 	'nmr.directives.uiSlider',
 	'nmr.directives.uiSelectable',
 	'nmr.directives.workspace',

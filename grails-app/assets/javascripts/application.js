@@ -16,14 +16,18 @@ angular.module('nmr', [
 	'ngResource',
 	'ngAnimate',
 	'ui.bootstrap',
+    'ngTagsInput',
+    'angularUtils.directives.dirPagination',
 	'nmr.services',
 	'nmr.controllers',
 	'nmr.directives',
 	'nmr.constants'
-]).config(['$locationProvider', function($locationProvider) {
+]).config(['$locationProvider', 'paginationTemplateProvider', function($locationProvider, paginationTemplateProvider) {
 	$locationProvider.html5Mode({
 		enabled: true
 	});
+	
+	paginationTemplateProvider.setPath('/assets/vendor/angular/modules/dirPagination.tpl.html');
 }]);
 
 angular.module('nmr.constants', []);

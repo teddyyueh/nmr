@@ -1,3 +1,12 @@
 .draggable {
 	float: left;
 }
+
+.no-gutter[class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.modal-backdrop {
+	height: 100%;
+}

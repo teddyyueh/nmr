@@ -1,11 +1,11 @@
 'use strict';
 
 // TODO: TY - Create generic modal form opener. Resolve the model instance in the delegated to controller.
-angular.module('nmr.controllers.complaint', ['nmr.services.dao', 'nmr.services.tags', 'nmr.constants']).controller('ComplaintCtrl', ['$scope', '$modal', '$resource', '$routeParams', '$log', '$location', 'Tags', 'Complaint', 'PARTIALS_ROOT', function($scope, $modal, $resource, $routeParams, $log, $location, Tags, Complaint, PARTIALS_ROOT) {
+angular.module('nmr.controllers.complaint', ['nmr.services.dao', 'nmr.services.tags']).controller('ComplaintCtrl', ['$scope', '$modal', '$resource', '$routeParams', '$log', '$location', 'Tags', 'Complaint', function($scope, $modal, $resource, $routeParams, $log, $location, Tags, Complaint) {
 	
 	$scope.openComplaintModal = function(id, size) {
 		var modalInstance = $modal.open({
-			templateUrl: PARTIALS_ROOT + '/complaint/form.html',
+			templateUrl: '/complaint/form.html',
 			controller: 'ModalComplaintCtrl',
 			size: size,
 			resolve: {
