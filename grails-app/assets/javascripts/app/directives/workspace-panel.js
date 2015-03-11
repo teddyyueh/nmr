@@ -88,6 +88,7 @@ angular.module('nmr.directives.workspacePanel', ['nmr.directives.workspace', 'nm
         	});
         	
         	// TODO: TY - Wrap $content in data-workspace-panel div and look for a trigger (.panel, .panel-header):
+        	// Also look for ngController to provide from attrs.
         	
         	// Insert content prior to compiling it to account for directives that need depend on context (e.g. workspacePanel needs to find the closest workspace):
         	var $content = $(response.data);

@@ -8,6 +8,7 @@ angular.module('nmr.services', [
 	'nmr.services.dao.patient',
 	'nmr.services.dao',
 	'nmr.services.dao.complaint',
+	'nmr.services.patient',
 	'nmr.services.tags'
 ]);
 

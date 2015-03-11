@@ -8,7 +8,7 @@
 	<div class="container-fluid panel-body" ng-controller="PatientsCtrl">
 		<div class="form-horizontal">
 			<div class="form-group col-sm-2">
-				<button class="btn btn-default" data-modal-trigger data-template-url="/assets/partials/user/patient/form.html">Add Patient</button>
+				<button class="btn btn-default" data-modal-trigger data-template-url="/assets/partials/user/patient/form.html" data-use-ctrl="PatientCtrl">Add Patient</button>
 			</div>
 			<div class="form-group col-sm-5">
 				<label class="col-sm-2 control-label" for="name">MRN</label>
@@ -30,8 +30,8 @@
 					<tr><th>MRN</th><th>Name</th></tr>
 				</thead>
 				<tr dir-paginate="patient in patients | itemsPerPage:itemsPerPage">
-					<td class="col-sm-3">{{patient.medicalRecordNumber}}</td>
-					<td class="col-sm-9">{{patient.firstName}} {{patient.middleName}} {{patient.lastName}}</td>
+					<td class="col-sm-3">{{patient.profile.medicalRecordNumber}}</td>
+					<td class="col-sm-9">{{patient.profile.firstName}} {{patient.profile.middleName}} {{patient.profile.lastName}}</td>
 				</tr>
 			</table>
 			<div ng-cloak class="text-center alert alert-warning" ng-hide="patients.length">No patients match the provided criteria.</div>

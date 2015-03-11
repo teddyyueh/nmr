@@ -1,4 +1,4 @@
-<div ng-controller="PatientCtrl" class="panel panel-default">
+<div class="panel panel-default">
 	<div class="panel-heading" ng-switch on="patient.id || 'null'">
 		<span ng-switch-when="null">Create New Patient</span>
 		<span ng-switch-default>{{patient.firstName}} {{patient.middleName}} {{patient.lastName}}</span>
@@ -56,7 +56,7 @@
 				<label class="col-sm-3 control-label"  for="birthdate">Birthdate</label>
 				<div class="col-sm-9">
 					<div class="input-group">
-				      <input readonly type="text" class="form-control" placeholder="Select birthdate" datepicker-popup ng-model="patient.profile.birthdate" date-disabled="disabled(date, mode)" close-text="Close" is-open="datepickerOpened">
+				      <input readonly type="text" class="form-control" placeholder="Select birthdate" datepicker-popup ng-model="patient.profile.birthdate_broken" date-disabled="disabled(date, mode)" close-text="Close" is-open="datepickerOpened">
 				      <span class="input-group-btn">
 				        <button class="btn btn-default" type="button" ng-click="openDatepicker($event)">
 				        	<span class="glyphicon glyphicon-calendar"></span>
@@ -96,5 +96,6 @@
 				</div>
 			</div>
 		</div>
+		<button class="btn btn-default pull-right" ng-click="save()">Save</button>
 	</div>
 </div>

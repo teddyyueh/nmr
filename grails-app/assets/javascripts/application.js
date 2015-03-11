@@ -22,7 +22,10 @@ angular.module('nmr', [
 	'nmr.controllers',
 	'nmr.directives',
 	'nmr.constants'
-]).config(['$locationProvider', 'paginationTemplateProvider', function($locationProvider, paginationTemplateProvider) {
+]).config(['$httpProvider', '$locationProvider', 'paginationTemplateProvider', function($httpProvider, $locationProvider, paginationTemplateProvider) {
+	
+	//$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+	
 	$locationProvider.html5Mode({
 		enabled: true
 	});

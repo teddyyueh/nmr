@@ -32,13 +32,18 @@ class UserController extends RestfulController {
 			instance.profile = params.profileClass.newInstance()
 		}
 		
-		bindData(instance, bindObject, [exclude: ['password']])
+		if (params.id) {
+			bindData(instance, bindObject, [exclude: ['password']])
+		}
+		else {
+			bindData(instance, bindObject)
+		}
 		return instance
 	}
 	
 	@Override
 	protected Object getObjectToBind() {
-		return super.getObjectToBind()
+		return request.JSON
 	}
 	
 }

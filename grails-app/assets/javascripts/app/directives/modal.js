@@ -16,10 +16,14 @@ angular.module('nmr.directives.modal', ['ui.bootstrap']).directive('modalTrigger
             			size: attrs.size || 'lg',
             			backdrop: (angular.isDefined(attrs.backdrop) ? angular.fromJson(attrs.backdrop) : true),
             			windowClass: attrs.windowClass || '',
-            			resolve: common.eval(scope, attrs.resolve) || {}
+            			resolve: common.eval(scope, attrs.resolve) || {},
+            			scope: attrs.scope
             	};
-            	var modalInstance = $modal.open(modalArgs);
-                modalInstance.result.then(function(value){
+        		if (attrs.useCtrl) {
+        			modalArgs.controller = attrs.useCtrl;
+        		}
+            	scope.modalInstance = $modal.open(modalArgs);
+                scope.modalInstance.result.then(function(value){
                     console.log('Modal finished:' + value);
                     if (attrs.resultHandler) {
                     	var handler = common.eval(scope, attrs.resultHandler);

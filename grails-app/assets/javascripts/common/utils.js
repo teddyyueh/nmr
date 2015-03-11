@@ -62,7 +62,7 @@
 	common.convertToServerDates = function(obj, dateFields) {
 		if (obj && dateFields) {
 			angular.forEach(dateFields, function(fieldName){
-				if (common.isDate(data[fieldName])) {
+				if (common.isDate(obj[fieldName])) {
 					obj[fieldName] = obj[fieldName].toISOString();
 				}
 			});
