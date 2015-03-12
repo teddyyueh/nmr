@@ -7,8 +7,7 @@ angular.module('nmr.directives', [
 	'nmr.directives.modal',
 	'nmr.directives.uiSlider',
 	'nmr.directives.uiSelectable',
-	'nmr.directives.workspace',
-    'nmr.directives.workspacePanel'
+	'nmr.directives.workspace'
 ]);
 
 

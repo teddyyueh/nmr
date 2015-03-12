@@ -1,4 +1,4 @@
-.draggable {
+[data-workspace-panel] {
 	float: left;
 }
 

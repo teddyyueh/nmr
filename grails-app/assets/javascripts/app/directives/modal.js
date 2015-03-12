@@ -17,11 +17,10 @@ angular.module('nmr.directives.modal', ['ui.bootstrap']).directive('modalTrigger
             			backdrop: (angular.isDefined(attrs.backdrop) ? angular.fromJson(attrs.backdrop) : true),
             			windowClass: attrs.windowClass || '',
             			resolve: common.eval(scope, attrs.resolve) || {},
-            			scope: attrs.scope
+            			scope: attrs.scope,
+            			controller: attrs.useCtrl
             	};
-        		if (attrs.useCtrl) {
-        			modalArgs.controller = attrs.useCtrl;
-        		}
+        		
             	scope.modalInstance = $modal.open(modalArgs);
                 scope.modalInstance.result.then(function(value){
                     console.log('Modal finished:' + value);

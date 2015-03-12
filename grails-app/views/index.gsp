@@ -8,7 +8,6 @@
 			width: 90px;
 			height: 80px;
 			padding: 5px;
-			float: left;
 			margin: 0 10px 10px 0;
 			font-size: .9em;
 		}
@@ -31,9 +30,9 @@
 		<button ng-click="openComplaintModal()">Add Complaint</button>
 	</div>
 	
-	<button data-workspace-panel-trigger="click" data-template-url="/assets/partials/complaint/create.html?id=yay" data-workspace-selector="#workspace" data-workspace-panel-scope-params='{"id":"teddy"}'>New Add Complaint</button>
+	<button data-workspace-panel-trigger="click" data-template-url="/assets/partials/complaint/create.html?id=yay" data-workspace-selector="#workspace" data-use-ctrl="ComplaintCtrl">New Add Complaint</button>
 
-	<button data-workspace-panel-trigger="click" data-template-url="/assets/partials/user/patient/form.html" data-workspace-selector="#workspace" >Add Patient</button>
+	<button data-workspace-panel-trigger="click" data-template-url="/assets/partials/user/patient/form.html" data-workspace-selector="#workspace">Add Patient</button>
 	
 	<div id="workspace" data-workspace="true">
 	

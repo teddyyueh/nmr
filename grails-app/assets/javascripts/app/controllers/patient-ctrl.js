@@ -15,6 +15,7 @@ angular.module('nmr.controllers.patient', ['nmr.services.dao', 'nmr.services.pat
 			if (create) {
 				PatientDataService.addPatient(p);
 			}
+			// TODO: TY - make $modalInstance an optional dependency:
 			$modalInstance.close(p);
 		});
 	}
