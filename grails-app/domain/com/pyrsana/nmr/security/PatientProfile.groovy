@@ -2,7 +2,7 @@ package com.pyrsana.nmr.security
 
 class PatientProfile extends UserProfile {
 
-	Date birthdate
+	Date birthdate = new Date()
 	String medicalRecordNumber
 	
 	String insuranceMemberId

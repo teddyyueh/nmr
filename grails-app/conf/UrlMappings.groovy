@@ -5,10 +5,20 @@ class UrlMappings {
 	static mappings = {
 		
 		"/rest/complaint"(resources:"complaint")
-		"/rest/patient"(resources:"user") {
-			profileClass = PatientProfile
-		}
 		"/rest/complaint-location"(resources:"location")
+		
+		"/rest/$controller/$action/$id?(.$format)?"{
+			constraints {
+				
+			}
+		}
+		
+		"/rest/$controller"{
+			action = [GET:'show', PUT:'update', DELETE:'delete', POST:'save']
+			constraints {
+				
+			}
+		}
 		
         "/$controller/$action?/$id?(.$format)?"{
             constraints {

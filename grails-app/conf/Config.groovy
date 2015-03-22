@@ -16,6 +16,7 @@ grails.app.context = '/'
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 
 grails.web.url.converter = 'hyphenated'
+grails.databinding.dateFormats = ["yyyy-MM-dd'T'hh:mm:ss.S'Z'", "yyyy-MM-dd HH:mm:ss.S", "yyyy-MM-dd'T'hh:mm:ss'Z'"]
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']

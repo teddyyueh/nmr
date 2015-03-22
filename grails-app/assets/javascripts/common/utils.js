@@ -36,7 +36,7 @@
 	 * @return true if obj is a Javascript Date based on Object's toString.
 	 */
 	common.isDate = function(obj) {
-		return Object.prototype.toString.call(obj) === "[object Date]";
+		return obj && Object.prototype.toString.call(obj) === "[object Date]";
 	};
 
 	/**
@@ -62,8 +62,25 @@
 	common.convertToServerDates = function(obj, dateFields) {
 		if (obj && dateFields) {
 			angular.forEach(dateFields, function(fieldName){
-				if (common.isDate(obj[fieldName])) {
-					obj[fieldName] = obj[fieldName].toISOString();
+				var currentObj = obj;
+				var currentName = fieldName;
+				if (fieldName.indexOf('.') >= 0) {
+					var fieldNames = fieldName.split('.');
+					var depth = fieldNames.length - 1;
+					currentName = fieldNames[depth];
+					for (var i=0; i<depth; i++) {
+						var name = fieldNames[0];
+						if (angular.isObject(currentObj[name])) {
+							currentObj = currentObj[name];
+						}
+						else {
+							currentName = null;
+							break;
+						}
+					}
+				}
+				if (currentObj && currentName && common.isDate(currentObj[currentName])) {
+					currentObj[currentName] = currentObj[currentName].toISOString();
 				}
 			});
 		}
@@ -96,8 +113,26 @@
 	common.convertFromServerDates = function(obj, dateFields) {
 		if (obj && dateFields) {
 			angular.forEach(dateFields, function(fieldName) {
-				if (common.isIso8601DateString(obj[fieldName])) {
-					obj[fieldName] = new Date(obj[fieldName]);
+				var currentObj = obj;
+				var currentName = fieldName;
+				if (fieldName.indexOf('.') >= 0) {
+					var fieldNames = fieldName.split('.');
+					var depth = fieldNames.length - 1;
+					currentName = fieldNames[depth];
+					for (var i=0; i<depth; i++) {
+						var name = fieldNames[0];
+						if (angular.isObject(currentObj[name])) {
+							currentObj = currentObj[name];
+						}
+						else {
+							currentName = null;
+							break;
+						}
+					}
+				}
+				
+				if (currentObj && currentName && common.isIso8601DateString(currentObj[currentName])) {
+					currentObj[currentName] = new Date(currentObj[currentName]);
 				}
 			});
 		}

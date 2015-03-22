@@ -168,5 +168,4 @@ angular.module('nmr.directives.workspace', ['nmr.directives.uiSelectable', 'nmr.
 }]).run(['$log', '$rootScope', function($log, $rootScope){
 	// Populate $rootScope with properties to support grouping: 
 	$rootScope.layers = {};
-	$log.info('Initialized workspace panels');
 }]);

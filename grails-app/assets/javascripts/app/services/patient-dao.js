@@ -4,7 +4,7 @@
 angular.module('nmr.services.dao.patient', ['ngResource', 'nmr.constants', 'nmr.services.dao']).factory('Patient', ['$resource', '$http', 'CONTEXT_PREFIX', function($resource, $http, CONTEXT_PREFIX) {
 	
 	var urlPatternPrefix = CONTEXT_PREFIX + '/rest/patient';
-	var dateFields = ['birthdate'];
+	var dateFields = ['profile.birthdate'];
 	var defaultTimeoutMillis = 20000; // TODO: TY - make this a constant?
 	
 	var transformRequestFunctions = [function(data, headersGetter){
@@ -13,6 +13,7 @@ angular.module('nmr.services.dao.patient', ['ngResource', 'nmr.constants', 'nmr.
 	}].concat($http.defaults.transformRequest);
 	
 	var transformResponseFunctions = [function(data, headersGetter){
+		data = typeof(data) == 'string' ? angular.fromJson(data) : data;
 		var converter = angular.isArray(data) ? common.convertFromServerDatesArray : common.convertFromServerDates;
 		converter(data, dateFields);
 		return data;
