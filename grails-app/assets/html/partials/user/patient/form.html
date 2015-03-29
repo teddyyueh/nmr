@@ -1,3 +1,4 @@
+<form ng-submit="save()">
 <div class="panel panel-default">
 	<div class="panel-heading" ng-switch on="patient.id || 'null'">
 		<span ng-switch-when="null">Create New Patient</span>
@@ -22,13 +23,13 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label"  for="password">Password</label>
 					<div class="col-sm-9">
-						<input type="password" class="form-control" name="password" placeholder="Enter Password" ng-model="patient.password">
+						<input type="password" class="form-control" name="password" placeholder="Enter Password" ng-model="patient.password" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label"  for="confirmPassword">Confirm Password</label>
 					<div class="col-sm-9">
-						<input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password">
+						<input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" ng-model="patient.confirmPassword" ng-fab-match="patient.password" required>
 					</div>
 				</div>
 			</div>
@@ -96,6 +97,7 @@
 				</div>
 			</div>
 		</div>
-		<button class="btn btn-default pull-right" ng-click="save()">Save</button>
+		<button class="btn btn-default pull-right" type="submit">Save</button>
 	</div>
 </div>
+</form>

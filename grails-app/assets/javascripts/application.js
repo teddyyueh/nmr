@@ -17,6 +17,7 @@ angular.module('nmr', [
 	'ngAnimate',
 	'ui.bootstrap',
     'ngTagsInput',
+    'ngFabForm',
     'angularUtils.directives.dirPagination',
 	'nmr.services',
 	'nmr.controllers',
